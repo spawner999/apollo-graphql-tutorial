@@ -1,16 +1,13 @@
 {
-  "name": "lyrical",
+  "name": "apollo-grapql-tutorial",
   "version": "1.0.0",
   "description": "Starter point for a graphQL course",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/StephenGrider/Lyrical-GraphQL"
-  },
+  "repository": "https://github.com/spawner999/apollo-graphql-tutorial.git",
   "scripts": {
     "dev": "nodemon index.js --ignore client"
   },
-  "author": "",
+  "author": "Lorenzo <lferrario@byte-code.com>",
   "license": "ISC",
   "dependencies": {
     "apollo-client": "^0.8.1",
@@ -50,6 +47,7 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^7.0.1"
+    "eslint-plugin-react": "^7.0.1",
+    "prop-types": "^15.5.10"
   }
 }

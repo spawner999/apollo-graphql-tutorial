@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 
 class SongList extends Component {
   static propTypes = {
@@ -19,9 +21,14 @@ class SongList extends Component {
 
   render() {
     return (
-      <ul className="collection">
-        {this.renderSongs()}
-      </ul>
+      <div>
+        <ul className="collection">
+          {this.renderSongs()}
+        </ul>
+        <Link to="songs/new" className="btn-floating btn-large red right">
+          <i className="material-icons">add</i>
+        </Link>
+      </div>
     );
   }
 }
