@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link, hashHistory } from 'react-router';
 
+import query from '../queries/songList';
+
 class CreateSong extends Component {
   static propTypes = {
     mutate: PropTypes.func.isRequired
@@ -30,7 +32,8 @@ class CreateSong extends Component {
     return mutate({
       variables: {
         title: songTitle
-      }
+      },
+      refetchQueries: [{ query }]
     }).then(hashHistory.push('/'));
   };
 

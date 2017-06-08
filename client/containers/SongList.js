@@ -1,15 +1,6 @@
-import gql from 'graphql-tag';
-
 import SongList from '../components/SongList';
 import withQuery from '../containers/withQuery';
 
-const query = gql`
-    {
-      songs {
-        title,
-        id
-      }
-    }
-`;
+import query from '../queries/songList';
 
 export default withQuery(query)(SongList);

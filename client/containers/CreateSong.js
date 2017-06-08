@@ -1,14 +1,6 @@
-import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 import CreateSong from '../components/CreateSong';
-
-const mutation = gql`
-  mutation addSong($title: String) {
-    addSong(title: $title) {
-      id
-    }
-  }
-`;
+import mutation from '../mutations/createSong';
 
 export default graphql(mutation)(CreateSong);
