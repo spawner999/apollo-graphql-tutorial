@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
-import query from '../queries/songList';
-
 class SongList extends Component {
   static propTypes = {
     mutate: PropTypes.func.isRequired,
@@ -18,18 +16,19 @@ class SongList extends Component {
   };
 
   deleteSong = id => {
-    const { mutate } = this.props;
+    const { mutate, data } = this.props;
     mutate({
-      variables: { id },
-      refetchQueries: [{ query }]
-    });
+      variables: { id }
+    })
+      .then(() => data.refetch())
+      .catch();
   };
 
   renderSongs() {
     const { data: { songs } } = this.props;
     return songs.map(({ id, title }) => (
       <li className="collection-item" key={id}>
-        {title}
+        <Link to={`songs/${id}`}>{title}</Link>
         <i
           role="button"
           tabIndex={0}

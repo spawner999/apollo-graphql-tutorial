@@ -4,8 +4,11 @@ import { branch, compose, renderComponent } from 'recompose';
 
 const isLoading = ({ data: { loading } }) => loading;
 
-function withQuery(query) {
-  return compose(graphql(query), branch(isLoading, renderComponent(() => <div>Loading</div>)));
+function withQuery(query, queryOptions = {}) {
+  return compose(
+    graphql(query, queryOptions),
+    branch(isLoading, renderComponent(() => <div>Loading</div>))
+  );
 }
 
 export default withQuery;
