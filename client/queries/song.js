@@ -1,9 +1,14 @@
 import gql from 'graphql-tag';
 
 const query = gql`
-    query songDetail($id: ID!) {
+    query song($id: ID!) {
       song(id: $id) {
-        title
+        title,
+        id,
+        lyrics {
+          content,
+          id
+        }
       }
     }
 `;

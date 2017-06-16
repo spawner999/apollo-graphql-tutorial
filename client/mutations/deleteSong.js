@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-const deleteSong = gql`
+const mutation = gql`
   mutation deleteSong($id: ID) {
     deleteSong(id: $id) {
       id
@@ -8,4 +8,4 @@ const deleteSong = gql`
   }
 `;
 
-export default deleteSong;
+export default mutation;

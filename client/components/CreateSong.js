@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link, hashHistory } from 'react-router';
 
-import query from '../queries/songList';
+import query from '../queries/songs';
 
 class CreateSong extends Component {
   static propTypes = {

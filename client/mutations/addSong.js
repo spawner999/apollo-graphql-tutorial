@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-const createSong = gql`
+const mutation = gql`
   mutation addSong($title: String) {
     addSong(title: $title) {
       id
@@ -8,4 +8,4 @@ const createSong = gql`
   }
 `;
 
-export default createSong;
+export default mutation;
