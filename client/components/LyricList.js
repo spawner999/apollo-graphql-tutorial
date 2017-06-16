@@ -6,14 +6,14 @@ class LyricList extends Component {
     lyrics: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        content: PropTypes.string.isRequired
-      })
-    ).isRequired
+        content: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
   };
 
   renderLyrics() {
     const { lyrics } = this.props;
-    return lyrics.map(l => <ul className="collection-item" id={l.id}>{l.content}</ul>);
+    return lyrics.map(l => <ul className="collection-item" key={l.id}>{l.content}</ul>);
   }
 
   render() {

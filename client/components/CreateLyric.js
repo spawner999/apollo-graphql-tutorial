@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class CreateLyric extends Component {
   static propTypes = {
     songId: PropTypes.string.isRequired,
-    mutate: PropTypes.func.isRequired
+    mutate: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -14,7 +14,7 @@ class CreateLyric extends Component {
 
   handleChange = e => {
     this.setState({
-      content: e.target.value
+      content: e.target.value,
     });
   };
 
@@ -25,8 +25,8 @@ class CreateLyric extends Component {
     return mutate({
       variables: {
         content,
-        songId
-      }
+        songId,
+      },
     }).then(() => this.setState({ content: '' }));
   };
 
@@ -34,7 +34,7 @@ class CreateLyric extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="add-lyric">Add a Lyric</label>
-        <input onChange={this.handleChange} />
+        <input value={this.state.content} onChange={this.handleChange} />
       </form>
     );
   }
