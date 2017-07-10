@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
 import CreateLyric from '../containers/CreateLyric';
-import LyricList from '../components/LyricList';
+import LyricList from '../containers/LyricList';
 
 class SongDetail extends Component {
   static propTypes = {
@@ -14,11 +14,11 @@ class SongDetail extends Component {
         lyrics: PropTypes.arrayOf(
           PropTypes.shape({
             id: PropTypes.string.isRequired,
-            content: PropTypes.string.isRequired
-          })
-        )
-      })
-    }).isRequired
+            content: PropTypes.string.isRequired,
+          }),
+        ),
+      }),
+    }).isRequired,
   };
 
   render() {

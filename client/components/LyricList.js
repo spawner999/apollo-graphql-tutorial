@@ -7,13 +7,38 @@ class LyricList extends Component {
       PropTypes.shape({
         id: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
+        likes: PropTypes.number.isRequired,
       }),
     ).isRequired,
+    mutate: PropTypes.func.isRequired,
+  };
+
+  likeLyric = id => {
+    this.props.mutate({
+      variables: { id },
+    });
   };
 
   renderLyrics() {
     const { lyrics } = this.props;
-    return lyrics.map(l => <ul className="collection-item" key={l.id}>{l.content}</ul>);
+    return lyrics.map(({ id, content, likes }) => (
+      <ul className="collection-item" key={id}>
+        {content}
+        <div className="vote-box">
+          {likes}
+          <i
+            role="button"
+            tabIndex={0}
+            className="material-icons"
+            onClick={() => {
+              this.likeLyric(id);
+            }}
+          >
+            thumb_up
+          </i>
+        </div>
+      </ul>
+    ));
   }
 
   render() {

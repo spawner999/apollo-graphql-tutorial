@@ -6,21 +6,21 @@ import query from '../queries/songs';
 
 class CreateSong extends Component {
   static propTypes = {
-    mutate: PropTypes.func.isRequired
+    mutate: PropTypes.func.isRequired,
   };
 
   constructor(props) {
     super(props);
 
     this.state = {
-      songTitle: ''
+      songTitle: '',
     };
   }
 
   updateSongTitle = event => {
     const songTitle = event.target.value;
     this.setState({
-      songTitle
+      songTitle,
     });
   };
 
@@ -31,9 +31,9 @@ class CreateSong extends Component {
 
     return mutate({
       variables: {
-        title: songTitle
+        title: songTitle,
       },
-      refetchQueries: [{ query }]
+      refetchQueries: [{ query }],
     }).then(hashHistory.push('/'));
   };
 
